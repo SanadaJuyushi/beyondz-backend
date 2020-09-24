@@ -1,0 +1,7 @@
+obj
+bin
+*.db
+.vs
+.vscode
+.DS_Store
+docker/data
