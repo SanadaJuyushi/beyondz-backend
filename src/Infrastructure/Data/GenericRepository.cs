@@ -23,9 +23,14 @@ namespace Infrastructure.Data
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
+        public async Task<T> GetEntityWithSpecAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> ExistAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).AnyAsync();
         }
 
         public async Task<IReadOnlyList<T>> ListAllAsync()
@@ -63,6 +68,7 @@ namespace Infrastructure.Data
         {
             return SpecificationEvaluator<T>.GetQueryable(_context.Set<T>().AsQueryable(), spec);
         }
+
 
     }
 }

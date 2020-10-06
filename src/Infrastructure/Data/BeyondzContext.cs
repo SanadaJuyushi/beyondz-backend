@@ -1,6 +1,9 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -10,6 +13,15 @@ namespace Infrastructure.Data
     {
         public BeyondzContext(DbContextOptions<BeyondzContext> options) : base(options)
         {
+        }
+
+        public DbSet<StackOverflowTag> StackOverflowTags { get; set; }
+
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            AddTimeStamps();
+            return (await base.SaveChangesAsync(true, cancellationToken));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,5 +52,22 @@ namespace Infrastructure.Data
             }
             #endregion
         }
+        private void AddTimeStamps()
+        {
+            var entities = ChangeTracker.Entries()
+            .Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+
+            foreach (var entity in entities)
+            {
+                var now = DateTime.Now;
+                if (entity.State == EntityState.Added)
+                {
+                    ((BaseEntity)entity.Entity).CreatedAt = now;
+                }
+                ((BaseEntity)entity.Entity).UpdatedAt = now;
+            }
+
+        }
+
     }
 }

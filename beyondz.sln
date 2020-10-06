@@ -1,23 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1FDA7F2B-3431-4553-B0B6-C969C82E0831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{216134BA-F0E4-46E4-B9AD-4B0168BECA9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\Core\Core.csproj", "{216134BA-F0E4-46E4-B9AD-4B0168BECA9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{F40CFA65-C6C0-449A-AFE4-365B5BF913A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{F40CFA65-C6C0-449A-AFE4-365B5BF913A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{1EF64DD7-8D03-494D-8A2B-9074A4CA58AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "src\Api\Api.csproj", "{1EF64DD7-8D03-494D-8A2B-9074A4CA58AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DE7B2416-22C8-41C4-8C77-3AC3501B9244}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.UnitTest", "tests\Core.UnitTest\Core.UnitTest.csproj", "{93E9D521-9161-41E3-B601-94B1B8FD78DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.UnitTest", "tests\Core.UnitTest\Core.UnitTest.csproj", "{93E9D521-9161-41E3-B601-94B1B8FD78DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.UnitTest", "tests\Infrastructure.UnitTest\Infrastructure.UnitTest.csproj", "{C35C4B3E-A637-4A64-AB62-40A8ACEAD0BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.UnitTest", "tests\Infrastructure.UnitTest\Infrastructure.UnitTest.csproj", "{C35C4B3E-A637-4A64-AB62-40A8ACEAD0BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.UnitTest", "tests\Api.UnitTest\Api.UnitTest.csproj", "{5522432D-073A-44EB-978E-51FEEE3D0B97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.UnitTest", "tests\Api.UnitTest\Api.UnitTest.csproj", "{5522432D-073A-44EB-978E-51FEEE3D0B97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{326B6772-CDAD-4299-A18F-181896EA79CE}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +32,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{216134BA-F0E4-46E4-B9AD-4B0168BECA9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -105,6 +107,9 @@ Global
 		{5522432D-073A-44EB-978E-51FEEE3D0B97}.Release|x86.ActiveCfg = Release|Any CPU
 		{5522432D-073A-44EB-978E-51FEEE3D0B97}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{216134BA-F0E4-46E4-B9AD-4B0168BECA9C} = {1FDA7F2B-3431-4553-B0B6-C969C82E0831}
 		{F40CFA65-C6C0-449A-AFE4-365B5BF913A8} = {1FDA7F2B-3431-4553-B0B6-C969C82E0831}
@@ -112,5 +117,8 @@ Global
 		{93E9D521-9161-41E3-B601-94B1B8FD78DC} = {DE7B2416-22C8-41C4-8C77-3AC3501B9244}
 		{C35C4B3E-A637-4A64-AB62-40A8ACEAD0BC} = {DE7B2416-22C8-41C4-8C77-3AC3501B9244}
 		{5522432D-073A-44EB-978E-51FEEE3D0B97} = {DE7B2416-22C8-41C4-8C77-3AC3501B9244}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02A247E0-5CC7-4EF7-9263-D02B4A19E049}
 	EndGlobalSection
 EndGlobal
