@@ -43,9 +43,6 @@ jobs:
       - name: Install dependencies
         run: dotnet restore
       
-      - name: Start sonar can
-        run: dotnet sonarscanner begin /k:"dongsu-iis_beyondz-backend"
-      
       - name: Test and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
