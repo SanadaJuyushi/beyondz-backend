@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Reflection;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.CronJobs;
 using Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,7 @@ namespace Api.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 
-            services.AddHttpClient<IStackOverflowService, StackOverflowService>()
+            services.AddHttpClient<IStackOverflowApiService, StackOverflowApiService>()
                 .ConfigureHttpClient(c =>
                 {
                     c.BaseAddress = new Uri(config["StackOverflowBaseUri"]);
@@ -38,10 +39,14 @@ namespace Api.Extensions
 
             services.RegisterAssemblyPublicNonGenericClasses(assembliesToScan)
                 .Where(x => x.Name.EndsWith("Service"))
-                .IgnoreThisInterface<IStackOverflowService>()
-                .AsPublicImplementedInterfaces(ServiceLifetime.Transient);
+                .IgnoreThisInterface<IStackOverflowApiService>()
+                .AsPublicImplementedInterfaces(ServiceLifetime.Scoped);
 
-            // services.AddScoped<ISkillTagService, SkillTagService>();
+            services.AddCronJob<RefreshBaseDataJob>(c =>
+            {
+                c.TimeZoneInfo = TimeZoneInfo.Local;
+                c.CronExpression = "00 00 01 * *";
+            });
 
             return services;
         }

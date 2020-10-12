@@ -9,9 +9,9 @@ namespace Infrastructure.Services
     public class SkillTagService : ISkillTagService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IStackOverflowService _stackOverflowService;
+        private readonly IStackOverflowApiService _stackOverflowService;
 
-        public SkillTagService(IStackOverflowService stackOverflowService, IUnitOfWork unitOfWork)
+        public SkillTagService(IStackOverflowApiService stackOverflowService, IUnitOfWork unitOfWork)
         {
             _stackOverflowService = stackOverflowService;
             _unitOfWork = unitOfWork;

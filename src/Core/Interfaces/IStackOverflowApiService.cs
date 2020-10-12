@@ -5,7 +5,7 @@ using Core.Entities;
 
 namespace Core.Interfaces
 {
-    public interface IStackOverflowService
+    public interface IStackOverflowApiService
     {
         Task<List<ApiTagItem>> GetStackOverflowTagsAsync();
     }
