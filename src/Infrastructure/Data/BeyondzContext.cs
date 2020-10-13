@@ -16,6 +16,7 @@ namespace Infrastructure.Data
         }
 
         public DbSet<StackOverflowTag> StackOverflowTags { get; set; }
+        public DbSet<SkillTag> SkillTags { get; set; }
 
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))

@@ -13,12 +13,12 @@ namespace Infrastructure.Services
     {
 
         private readonly HttpClient _httpClient;
-        private string _accessCre;
+        private readonly string _accessCre;
 
-        public StackOverflowApiService(HttpClient httpClient,IConfiguration config)
+        public StackOverflowApiService(HttpClient httpClient, IConfiguration config)
         {
             _httpClient = httpClient;
-            _accessCre = "&access_token=" +config["AccessToken"] + "&key=" +  config["AccessKey"];
+            _accessCre = "&access_token=" + config["AccessToken"] + "&key=" + config["AccessKey"];
         }
 
         public async Task<List<ApiTagItem>> GetStackOverflowTagsAsync()
