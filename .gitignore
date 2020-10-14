@@ -1,6 +1,6 @@
 obj
 bin
-*.db
+# *.db
 *.db-shm
 *.db-wal
 .vs
